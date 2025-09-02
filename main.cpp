@@ -95,3 +95,32 @@ int main()
 
 // Q4
 // Short-circuit evaluation stops once result is known:  if (x != 0 && (10 / x > 1)) { ... } - Prevents division by zero.
+
+// FUNCTION METHODS
+
+// Q1
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+bool isPalindrome(const string &str)
+{
+  return equal(str.begin(), str.begin() + str.size() / 2, str.rbegin());
+}
+
+int main()
+{
+  cout << "madam is palindrome? " << (isPalindrome("madam") ? "true" : "false") << endl;
+  cout << "hello is palindrome? " << (isPalindrome("hello") ? "true" : "false") << endl;
+  return 0;
+}
+
+// Q2
+// C++: by value, by reference, or by pointer. Java: always by value;
+
+// Q3
+// Function overloading requires different parameters (number/type). Return type alone not enough.
+
+// Q4
+// Recursion is a function calling itself. Base case prevents infinite recursion.
