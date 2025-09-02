@@ -399,3 +399,74 @@ return 0;
 
 // Q4
 // Used for polymorphism by defining contracts.
+
+// ASYNC OPERATIONS
+// Q1
+#include <iostream>
+#include <future>
+using namespace std;
+
+long long calculateSum()
+{
+long long sum = 0;
+for (long long i = 1; i <= 1000000; ++i)
+{
+sum += i;
+}
+return sum;
+}
+
+int main()
+{
+cout << "Main thread: starting calculation..." << endl;
+future<long long> result = async(launch::async, calculateSum);
+
+cout << "Main thread: waiting for result..." << endl;
+cout << "Result: " << result.get() << endl;
+return 0;
+}
+
+// Q2
+// Async solves blocking from I/O.
+
+// Q3
+// Parallel = simultaneous, Concurrent = interleaved.
+
+// Q4
+// Future/Promise manage results of async operations.
+
+// EXCEPTIONS
+// Q1
+#include <iostream>
+#include <stdexcept>
+using namespace std;
+
+void processAge(int age)
+{
+if (age < 0)
+throw invalid_argument("Age cannot be negative.");
+cout << "Age is: " << age << endl;
+}
+
+int main()
+{
+try
+{
+processAge(-5);
+}
+catch (const invalid_argument &e)
+{
+cerr << "Error: " << e.what() << endl;
+}
+cout << "Program continues..." << endl;
+return 0;
+}
+
+// Q2
+// try = risky code, catch = handle, finally = always runs. C++ uses RAII instead of finally.
+
+// Q3
+// Java has checked & unchecked. C++ treats all as unchecked.
+
+// Q4
+// Exceptions separate normal/error logic, but overuse can hurt readability.
