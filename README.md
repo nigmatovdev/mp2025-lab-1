@@ -137,3 +137,34 @@ return 0;
 
 // Q4
 // Recursion is a function calling itself. Base case prevents infinite recursion.
+
+// COMMENTS
+// Q1
+#include <iostream>
+using namespace std;
+
+/\*\*
+
+- Documentation comment using Doxygen/Javadoc style
+  \*/
+  int main()
+  {
+  // Single line comment
+  int x = 5; // inline comment
+
+/_
+Multi-line comment
+explaining code
+_/
+cout << "Comments example" << endl;
+return 0;
+}
+
+// Q2
+// Comments aid maintainability and team collaboration.
+
+// Q3
+// Javadoc/Doxygen generate structured documentation.
+
+// Q4
+// Good code is self-documenting, but comments explain algorithms, edge cases.
