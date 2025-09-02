@@ -222,7 +222,7 @@ string recommendActivity(Season s)
   case Season::SUMMER:
     return "Go to the beach";
   case Season::AUTUMN:
-    return "Rake leaves";
+    return "Rake leave";
   case Season::WINTER:
     return "Build a snowman";
   default:
