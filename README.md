@@ -293,3 +293,109 @@ return 0;
 
 // Q4
 // Diamond problem arises in multiple inheritance. C++ uses virtual inheritance, Java avoids with interfaces.
+
+// MIXINS / INTERFACES
+// Q1
+#include <iostream>
+#include <string>
+using namespace std;
+
+class IStringable
+{
+public:
+virtual string toString() const = 0;
+virtual ~IStringable() = default;
+};
+
+class Printable
+{
+public:
+void print(const IStringable &obj)
+{
+cout << obj.toString() << endl;
+}
+};
+
+class Book : public IStringable
+{
+private:
+string title, author;
+
+public:
+Book(string t, string a) : title(t), author(a) {}
+string toString() const override
+{
+return "'" + title + "' by " + author;
+}
+};
+
+int main()
+{
+Book b("The Hobbit", "J.R.R. Tolkien");
+Printable p;
+p.print(b);
+return 0;
+}
+
+// Q2
+// Mixins/interfaces add reusable behavior without strict inheritance.
+
+// Q3
+// Java default methods act like mixins.
+
+// Q4
+// Inheritance = simple but rigid, Composition = flexible, Mixins = reusable but can complicate.
+
+// POLYMOPRHISM
+// Q1
+#include <iostream>
+#include <vector>
+#include <memory>
+using namespace std;
+
+class Shape
+{
+public:
+virtual double getArea() const = 0;
+virtual ~Shape() = default;
+};
+
+class Rectangle : public Shape
+{
+double w, h;
+
+public:
+Rectangle(double width, double height) : w(width), h(height) {}
+double getArea() const override { return w \* h; }
+};
+
+class Circle : public Shape
+{
+double r;
+
+public:
+Circle(double radius) : r(radius) {}
+double getArea() const override { return 3.14159 _ r _ r; }
+};
+
+int main()
+{
+vector<unique_ptr<Shape>> shapes;
+shapes.push_back(make_unique<Rectangle>(10, 5));
+shapes.push_back(make_unique<Circle>(3));
+
+for (const auto &s : shapes)
+{
+cout << "Area: " << s->getArea() << endl;
+}
+return 0;
+}
+
+// Q2
+// Compile-time (overloading), Runtime (overriding).
+
+// Q3
+// Abstract class = can mix methods. Interface = pure virtual.
+
+// Q4
+// Used for polymorphism by defining contracts.
