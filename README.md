@@ -259,3 +259,37 @@ return 0;
 
 // Q4
 // C++11 enums are strongly typed. Java enums can have fields, methods, constructors.
+
+// INHERITANCE
+// Q1
+#include <iostream>
+using namespace std;
+
+class Vehicle
+{
+public:
+void startEngine() { cout << "Engine started." << endl; }
+};
+
+class Car : public Vehicle
+{
+public:
+void drive() { cout << "Car is moving." << endl; }
+};
+
+int main()
+{
+Car myCar;
+myCar.startEngine();
+myCar.drive();
+return 0;
+}
+
+// Q2
+// is-a = inheritance, has-a = composition.
+
+// Q3
+// Overriding redefines method. Use virtual/override in C++, @Override in Java.
+
+// Q4
+// Diamond problem arises in multiple inheritance. C++ uses virtual inheritance, Java avoids with interfaces.
