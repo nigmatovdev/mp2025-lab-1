@@ -212,3 +212,50 @@ return 0;
 
 // Q4
 // Constructor initializes. Default constructor = no args, auto-generated if none provided.
+
+// ENUMS
+// Q1
+#include <iostream>
+#include <string>
+using namespace std;
+
+enum class Season
+{
+SPRING,
+SUMMER,
+AUTUMN,
+WINTER
+};
+
+string recommendActivity(Season s)
+{
+switch (s)
+{
+case Season::SPRING:
+return "Plant flowers";
+case Season::SUMMER:
+return "Go to the beach";
+case Season::AUTUMN:
+return "Rake leaves";
+case Season::WINTER:
+return "Build a snowman";
+default:
+return "Rest";
+}
+}
+
+int main()
+{
+Season now = Season::AUTUMN;
+cout << recommendActivity(now) << endl;
+return 0;
+}
+
+// Q2
+// Enums safer than int/string constants.
+
+// Q3
+// Improve type safety and readability.
+
+// Q4
+// C++11 enums are strongly typed. Java enums can have fields, methods, constructors.
