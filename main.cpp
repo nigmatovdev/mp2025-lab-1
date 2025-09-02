@@ -154,3 +154,47 @@ int main()
 
 // Q4
 // Good code is self-documenting, but comments explain algorithms, edge cases.
+
+// CLASSES
+// Q1
+#include <iostream>
+using namespace std;
+
+class BankAccount
+{
+private:
+  double balance;
+
+public:
+  BankAccount(double initial)
+  {
+    balance = (initial >= 0) ? initial : 0;
+  }
+  void deposit(double amount)
+  {
+    if (amount > 0)
+      balance += amount;
+  }
+  double getBalance()
+  {
+    return balance;
+  }
+};
+
+int main()
+{
+  BankAccount acc(100.5);
+  cout << "Initial: " << acc.getBalance() << endl;
+  acc.deposit(50.25);
+  cout << "After deposit: " << acc.getBalance() << endl;
+  return 0;
+}
+
+// Q2
+// Class is blueprint, object is instance.
+
+// Q3
+// Public = everywhere, Private = inside class, Protected = class + derived.
+
+// Q4
+// Constructor initializes. Default constructor = no args, auto-generated if none provided.
